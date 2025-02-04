@@ -8,8 +8,7 @@ class AiChatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: ThemeData.dark(
         useMaterial3: true,
       ),
       routerConfig: AppRouter().getRouter(),

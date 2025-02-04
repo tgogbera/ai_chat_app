@@ -1,4 +1,5 @@
 import 'package:ai_chat_app/ui/chat_screen/chat_screen.dart';
+import 'package:ai_chat_app/ui/history_screen/history_screen.dart';
 import 'package:ai_chat_app/ui/home_screen/home_screen.dart';
 import 'package:ai_chat_app/ui/login_screen/login_screen.dart';
 import 'package:ai_chat_app/ui/main_screen/main_screen.dart';
@@ -25,14 +26,18 @@ class AppRouter {
             ]),
             StatefulShellBranch(routes: [
               GoRoute(
-                path: ChatScreen.path,
+                path: HistoryScreen.path,
                 pageBuilder: (context, state) => NoTransitionPage(
                   key: state.pageKey,
-                  child: const ChatScreen(),
+                  child: const HistoryScreen(),
                 ),
               ),
             ]),
           ]),
+      GoRoute(
+        path: ChatScreen.path,
+        builder: (context, state) => const ChatScreen(),
+      ),
       GoRoute(
         path: LoginScreen.path,
         builder: (context, state) => const LoginScreen(),
