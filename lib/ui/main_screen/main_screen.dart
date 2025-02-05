@@ -1,4 +1,5 @@
 import 'package:ai_chat_app/ui/main_screen/widgets/bottom_nav_bar.dart';
+import 'package:ai_chat_app/ui/shared/gradient_background.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,7 +14,9 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: navigationShell,
+      body: GradientBackground(
+        child: navigationShell,
+      ),
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
         onPressed: () {},
