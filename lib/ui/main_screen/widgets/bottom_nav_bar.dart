@@ -65,7 +65,7 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
             children: <Widget>[
               IconButton(
                 icon: const Icon(
-                  Icons.travel_explore,
+                  Icons.explore,
                 ),
                 onPressed: () => widget.navigationShell.goBranch(0),
               ),
