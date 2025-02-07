@@ -10,8 +10,9 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: GradientBackground(
+    return GradientBackground(
+      child: SafeArea(
+        bottom: true,
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(

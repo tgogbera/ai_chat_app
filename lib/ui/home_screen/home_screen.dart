@@ -115,22 +115,25 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min, // Centers the column vertically.
-        children: List.generate(items.length, (index) {
-          return SlideTransition(
-            position: _slideAnimation(index),
-            child: FadeTransition(
-              opacity: _fadeAnimation(index),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: items[index],
+    return SafeArea(
+      bottom: false,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min, // Centers the column vertically.
+          children: List.generate(items.length, (index) {
+            return SlideTransition(
+              position: _slideAnimation(index),
+              child: FadeTransition(
+                opacity: _fadeAnimation(index),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: items[index],
+                ),
               ),
-            ),
-          );
-        }),
+            );
+          }),
+        ),
       ),
     );
   }

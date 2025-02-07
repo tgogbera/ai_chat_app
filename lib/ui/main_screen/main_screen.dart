@@ -15,18 +15,17 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: GradientBackground(
-          child: navigationShell,
-        ),
-        floatingActionButton: AnimatedFloatingActionButton(
-          onPressed: () => context.push(ChatScreen.path),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomNavBar(
-          navigationShell: navigationShell,
-        ),
+    return Scaffold(
+      extendBody: true,
+      body: GradientBackground(
+        child: navigationShell,
+      ),
+      floatingActionButton: AnimatedFloatingActionButton(
+        onPressed: () => context.push(ChatScreen.path),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomNavBar(
+        navigationShell: navigationShell,
       ),
     );
   }
