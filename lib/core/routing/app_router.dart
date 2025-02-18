@@ -10,38 +10,41 @@ class AppRouter {
   GoRouter getRouter() {
     final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-    return GoRouter(routes: [
-      StatefulShellRoute.indexedStack(
-          builder: (context, state, navigationShell) =>
-              MainScreen(navigationShell: navigationShell),
-          branches: [
-            StatefulShellBranch(navigatorKey: navigatorKey, routes: [
-              GoRoute(
-                path: HomeScreen.path,
-                pageBuilder: (context, state) => NoTransitionPage(
-                  key: state.pageKey,
-                  child: const HomeScreen(),
+    return GoRouter(
+      // initialLocation: LoginScreen.path,
+      routes: [
+        StatefulShellRoute.indexedStack(
+            builder: (context, state, navigationShell) =>
+                MainScreen(navigationShell: navigationShell),
+            branches: [
+              StatefulShellBranch(navigatorKey: navigatorKey, routes: [
+                GoRoute(
+                  path: HomeScreen.path,
+                  pageBuilder: (context, state) => NoTransitionPage(
+                    key: state.pageKey,
+                    child: const HomeScreen(),
+                  ),
                 ),
-              ),
-            ]),
-            StatefulShellBranch(routes: [
-              GoRoute(
-                path: HistoryScreen.path,
-                pageBuilder: (context, state) => NoTransitionPage(
-                  key: state.pageKey,
-                  child: const HistoryScreen(),
+              ]),
+              StatefulShellBranch(routes: [
+                GoRoute(
+                  path: HistoryScreen.path,
+                  pageBuilder: (context, state) => NoTransitionPage(
+                    key: state.pageKey,
+                    child: const HistoryScreen(),
+                  ),
                 ),
-              ),
+              ]),
             ]),
-          ]),
-      GoRoute(
-        path: ChatScreen.path,
-        builder: (context, state) => const ChatScreen(),
-      ),
-      GoRoute(
-        path: LoginScreen.path,
-        builder: (context, state) => const LoginScreen(),
-      ),
-    ]);
+        GoRoute(
+          path: ChatScreen.path,
+          builder: (context, state) => const ChatScreen(),
+        ),
+        GoRoute(
+          path: LoginScreen.path,
+          builder: (context, state) => const LoginScreen(),
+        ),
+      ],
+    );
   }
 }

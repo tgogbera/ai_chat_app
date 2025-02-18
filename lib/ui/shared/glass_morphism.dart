@@ -26,10 +26,10 @@ class GlassMorphism extends StatelessWidget {
   const GlassMorphism({
     required this.child,
     this.borderRadius = 20.0,
-    this.blurSigma = 3.0,
-    this.gradientStartOpacity = 0.4,
-    this.gradientEndOpacity = 0.4,
-    this.borderWidth = 1.5,
+    this.blurSigma = 20.0, // increased blur for a stronger glass effect
+    this.gradientStartOpacity = 0.1, // lighter tint at the start
+    this.gradientEndOpacity = 0.05, // even more subtle tint at the end
+    this.borderWidth = 1.0, // thinner border for delicacy
     this.borderColor = Colors.white,
     super.key,
   });
@@ -46,14 +46,14 @@ class GlassMorphism extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.grey.withValues(alpha: gradientStartOpacity),
-                Colors.grey.withValues(alpha: gradientEndOpacity),
+                Colors.white.withOpacity(gradientStartOpacity),
+                Colors.white.withOpacity(gradientEndOpacity),
               ],
             ),
             borderRadius: BorderRadius.circular(borderRadius),
             border: Border.all(
               width: borderWidth,
-              color: borderColor.withValues(alpha: 0.2),
+              color: borderColor.withOpacity(0.2),
             ),
           ),
           child: child,
