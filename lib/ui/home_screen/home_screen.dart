@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
-          mainAxisSize: MainAxisSize.min, // Centers the column vertically.
+          mainAxisSize: MainAxisSize.min,
           children: List.generate(items.length, (index) {
             return SlideTransition(
               position: _slideAnimation(index),
