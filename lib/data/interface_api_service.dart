@@ -1,3 +1,5 @@
+import 'package:ai_chat_app/data/model/chat_completion.dart';
+
 abstract interface class InterfaceApiService {
-  Future<void> sendMessage(String messsage);
+  Future<ChatCompletion> sendMessage(String messsage);
 }
