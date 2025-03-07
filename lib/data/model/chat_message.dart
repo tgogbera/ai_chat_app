@@ -6,7 +6,7 @@ part 'chat_message.g.dart';
 class ChatMessage {
   final String role;
   final String content;
-  final dynamic refusal;
+  final String? refusal;
 
   ChatMessage({
     required this.role,
