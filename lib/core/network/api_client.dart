@@ -29,14 +29,17 @@ class ApiClient {
 
     _dio.interceptors.add(InterceptorsWrapper(
       onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+        // TODO: replace with logger
         print('REQUEST[${options.method}] => PATH: ${options.path}');
         handler.next(options); // continue
       },
       onResponse: (Response response, ResponseInterceptorHandler handler) {
+        // TODO: replace with logger
         print('RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
         handler.next(response); // continue
       },
       onError: (DioException error, ErrorInterceptorHandler handler) {
+        // TODO: replace with logger
         print('ERROR[${error.response?.statusCode}] => PATH: ${error.requestOptions.path}');
         handler.next(error); // continue
       },

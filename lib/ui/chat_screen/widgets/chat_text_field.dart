@@ -1,9 +1,31 @@
+import 'package:ai_chat_app/ui/chat_screen/notifiers/chat_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ChatTextField extends StatelessWidget {
+class ChatTextField extends ConsumerStatefulWidget {
   const ChatTextField({
     super.key,
   });
+
+  @override
+  ConsumerState<ChatTextField> createState() => _ChatTextFieldState();
+}
+
+class _ChatTextFieldState extends ConsumerState<ChatTextField> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +42,7 @@ class ChatTextField extends StatelessWidget {
           Expanded(
             child: TextField(
               autofocus: true,
+              controller: _controller,
               decoration: InputDecoration(
                 hintText: 'Type a message',
                 border: OutlineInputBorder(
@@ -32,7 +55,8 @@ class ChatTextField extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.send),
             onPressed: () {
-              // Handle send message
+              ref.read(chatNotifierProvider.notifier).sendMessage(_controller.text);
+              _controller.clear();
             },
           ),
         ],

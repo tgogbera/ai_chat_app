@@ -1,7 +1,10 @@
+import 'package:ai_chat_app/ui/chat_screen/notifiers/chat_provider.dart';
 import 'package:ai_chat_app/ui/chat_screen/widgets/chat_bubble.dart';
 import 'package:ai_chat_app/ui/chat_screen/widgets/chat_text_field.dart';
+import 'package:ai_chat_app/ui/chat_screen/widgets/loading_chat_bubble.dart';
 import 'package:ai_chat_app/ui/shared/gradient_background.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChatScreen extends StatelessWidget {
   static const path = '/chat';
@@ -23,28 +26,31 @@ class ChatScreen extends StatelessWidget {
           body: Column(
             children: [
               Expanded(
-                child: ListView(
-                  padding: const EdgeInsets.all(16),
-                  children: const [
-                    ChatBubble(
-                      message: 'Hey there! 👋 How can I help you today?',
-                      isUser: false,
-                    ),
-                    ChatBubble(
-                      message: 'I need help with my Flutter app 📱',
-                      isUser: true,
-                    ),
-                    ChatBubble(
-                      message: '''Let me assist you with that! 
-I'm quite knowledgeable about Flutter development. 
-What specific issue are you facing? 🤔''',
-                      isUser: false,
-                    ),
-                    ChatBubble(
-                      message: 'Thanks! I\'m having trouble with state management ✨',
-                      isUser: true,
-                    ),
-                  ],
+                child: Consumer(
+                  builder: (context, ref, child) {
+                    final chatState = ref.watch(chatNotifierProvider);
+
+                    return ListView.builder(
+                      itemCount: chatState.messages.length + (chatState.isLoading ? 1 : 0),
+                      itemBuilder: (context, index) {
+                        if (chatState.error != null) {
+                          return Center(
+                            child: Text('Error: ${chatState.error}'),
+                          );
+                        }
+
+                        if (chatState.isLoading && index == chatState.messages.length) {
+                          return const AssistantLoadingChatBubble();
+                        }
+
+                        final message = chatState.messages[index];
+                        return ChatBubble(
+                          message: message.message.content,
+                          isUser: message.message.role == 'user',
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
               ChatTextField(),
