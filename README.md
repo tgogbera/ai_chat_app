@@ -32,7 +32,7 @@ This project is a mobile chat application built with Flutter that allows users t
 
 Ensure you have the following environment variables in your `.env` file:
 
-```
+```env
 API_BASE_URL=your_api_url
 API_KEY=your_api_key
 ```
