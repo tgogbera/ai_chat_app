@@ -1,8 +1,8 @@
-import 'package:ai_chat_app/ui/chat_screen/chat_screen.dart';
-import 'package:ai_chat_app/ui/history_screen/history_screen.dart';
-import 'package:ai_chat_app/ui/home_screen/home_screen.dart';
-import 'package:ai_chat_app/ui/login_screen/login_screen.dart';
-import 'package:ai_chat_app/ui/main_screen/main_screen.dart';
+import 'package:ai_chat_app/presentation/chat_screen/chat_screen.dart';
+import 'package:ai_chat_app/presentation/history_screen/history_screen.dart';
+import 'package:ai_chat_app/presentation/home_screen/home_screen.dart';
+import 'package:ai_chat_app/presentation/login_screen/login_screen.dart';
+import 'package:ai_chat_app/presentation/main_screen/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

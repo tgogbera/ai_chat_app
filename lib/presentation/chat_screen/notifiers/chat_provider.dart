@@ -1,7 +1,7 @@
 // providers.dart
 import 'package:ai_chat_app/data/repository/repository.dart';
-import 'package:ai_chat_app/ui/chat_screen/notifiers/chat_notifier.dart';
-import 'package:ai_chat_app/ui/chat_screen/notifiers/chat_state.dart';
+import 'package:ai_chat_app/presentation/chat_screen/notifiers/chat_notifier.dart';
+import 'package:ai_chat_app/presentation/chat_screen/notifiers/chat_state.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

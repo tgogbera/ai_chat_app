@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:ai_chat_app/ui/home_screen/widgets/quick_action_item.dart';
+import 'package:ai_chat_app/presentation/home_screen/widgets/quick_action_item.dart';
 
 class HomeScreen extends StatefulWidget {
   static const path = '/';

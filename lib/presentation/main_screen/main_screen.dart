@@ -1,7 +1,7 @@
-import 'package:ai_chat_app/ui/chat_screen/chat_screen.dart';
-import 'package:ai_chat_app/ui/main_screen/widgets/animated_floating_action_button.dart';
-import 'package:ai_chat_app/ui/main_screen/widgets/bottom_nav_bar.dart';
-import 'package:ai_chat_app/ui/shared/gradient_background.dart';
+import 'package:ai_chat_app/presentation/chat_screen/chat_screen.dart';
+import 'package:ai_chat_app/presentation/main_screen/widgets/animated_floating_action_button.dart';
+import 'package:ai_chat_app/presentation/main_screen/widgets/bottom_nav_bar.dart';
+import 'package:ai_chat_app/presentation/shared/gradient_background.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

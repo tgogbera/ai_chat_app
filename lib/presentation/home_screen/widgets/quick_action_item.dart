@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/ui/shared/glass_morphic_container.dart';
+import 'package:ai_chat_app/presentation/shared/glass_morphic_container.dart';
 import 'package:flutter/material.dart';
 
 class QuickActionItem extends StatelessWidget {

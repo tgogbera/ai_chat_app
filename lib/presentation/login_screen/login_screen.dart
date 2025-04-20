@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ai_chat_app/ui/home_screen/home_screen.dart';
-import 'package:ai_chat_app/ui/shared/gradient_background.dart';
+import 'package:ai_chat_app/presentation/home_screen/home_screen.dart';
+import 'package:ai_chat_app/presentation/shared/gradient_background.dart';
 
 class LoginScreen extends StatelessWidget {
   static const path = '/login';

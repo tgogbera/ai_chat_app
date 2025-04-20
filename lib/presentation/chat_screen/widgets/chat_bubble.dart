@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ai_chat_app/ui/shared/glass_morphic_container.dart';
+import 'package:ai_chat_app/presentation/shared/glass_morphic_container.dart';
 
 class ChatBubble extends StatelessWidget {
   final String message;
