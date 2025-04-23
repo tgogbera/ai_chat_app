@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/data/model/chat_message.dart';
+import 'chat_message.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'chat_choice.g.dart';

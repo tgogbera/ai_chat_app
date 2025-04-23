@@ -1,7 +1,6 @@
-import 'package:ai_chat_app/presentation/chat_screen/chat_screen.dart';
 import 'package:ai_chat_app/presentation/main_screen/widgets/animated_floating_action_button.dart';
 import 'package:ai_chat_app/presentation/main_screen/widgets/bottom_nav_bar.dart';
-import 'package:ai_chat_app/presentation/shared/gradient_background.dart';
+import 'package:ui_kit/widgets/gradient_background.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,7 +20,9 @@ class MainScreen extends StatelessWidget {
         child: navigationShell,
       ),
       floatingActionButton: AnimatedFloatingActionButton(
-        onPressed: () => context.push(ChatScreen.path),
+        onPressed: () {
+          // context.push(ChatScreen.path);
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavBar(

@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/presentation/chat_screen/chat_screen.dart';
+// import '../../../packages/chat/lib/chat_screen.dart';
 import 'package:ai_chat_app/presentation/history_screen/history_screen.dart';
 import 'package:ai_chat_app/presentation/home_screen/home_screen.dart';
 import 'package:ai_chat_app/presentation/login_screen/login_screen.dart';
@@ -36,10 +36,10 @@ class AppRouter {
                 ),
               ]),
             ]),
-        GoRoute(
-          path: ChatScreen.path,
-          builder: (context, state) => const ChatScreen(),
-        ),
+        // GoRoute(
+        //   path: ChatScreen.path,
+        //   builder: (context, state) => const ChatScreen(),
+        // ),
         GoRoute(
           path: LoginScreen.path,
           builder: (context, state) => const LoginScreen(),

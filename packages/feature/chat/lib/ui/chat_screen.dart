@@ -1,8 +1,9 @@
-import 'package:ai_chat_app/presentation/chat_screen/notifiers/chat_provider.dart';
-import 'package:ai_chat_app/presentation/chat_screen/widgets/chat_bubble.dart';
-import 'package:ai_chat_app/presentation/chat_screen/widgets/chat_text_field.dart';
-import 'package:ai_chat_app/presentation/chat_screen/widgets/loading_chat_bubble.dart';
-import 'package:ai_chat_app/presentation/shared/gradient_background.dart';
+import 'package:ui_kit/widgets/gradient_background.dart';
+
+import 'notifiers/chat_provider.dart';
+import 'widgets/chat_bubble.dart';
+import 'widgets/chat_text_field.dart';
+import 'widgets/loading_chat_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

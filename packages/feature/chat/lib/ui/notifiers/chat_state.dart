@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/data/model/chat_choice.dart';
+import 'package:chat/data/model/chat_choice.dart';
 
 class ChatState {
   final List<ChatChoice> messages;

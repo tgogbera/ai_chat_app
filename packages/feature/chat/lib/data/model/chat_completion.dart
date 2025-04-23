@@ -1,5 +1,5 @@
-import 'package:ai_chat_app/data/model/chat_choice.dart';
-import 'package:ai_chat_app/data/model/usage.dart';
+import 'chat_choice.dart';
+import 'usage.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'chat_completion.g.dart';

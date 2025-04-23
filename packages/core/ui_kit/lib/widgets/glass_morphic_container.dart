@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/presentation/shared/glass_morphism.dart';
+import 'glass_morphism.dart';
 import 'package:flutter/material.dart';
 
 class GlassMorphicContainer extends StatelessWidget {

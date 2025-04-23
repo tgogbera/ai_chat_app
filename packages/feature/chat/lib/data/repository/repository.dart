@@ -1,8 +1,7 @@
-import 'package:ai_chat_app/core/network/api_client.dart';
-import 'package:ai_chat_app/data/model/chat_choice.dart';
-import 'package:ai_chat_app/data/model/chat_completion.dart';
-import 'package:ai_chat_app/data/model/request_message.dart';
-import 'package:ai_chat_app/data/repository/interface_repository.dart';
+import '../model/chat_choice.dart';
+import '../model/chat_completion.dart';
+import '../model/request_message.dart';
+import 'interface_repository.dart';
 
 final class Repository implements InterfaceRepository {
   final _apiClient = ApiClient();

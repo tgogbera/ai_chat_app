@@ -1,5 +1,5 @@
-import 'package:ai_chat_app/data/model/completion_token_details.dart';
-import 'package:ai_chat_app/data/model/prompt_token_details.dart';
+import 'completion_token_details.dart';
+import 'prompt_token_details.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'usage.g.dart';

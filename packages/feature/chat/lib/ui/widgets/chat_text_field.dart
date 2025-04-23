@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/presentation/chat_screen/notifiers/chat_provider.dart';
+import '../notifiers/chat_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
