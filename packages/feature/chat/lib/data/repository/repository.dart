@@ -1,3 +1,5 @@
+import 'package:api_client/api_client.dart';
+
 import '../model/chat_choice.dart';
 import '../model/chat_completion.dart';
 import '../model/request_message.dart';

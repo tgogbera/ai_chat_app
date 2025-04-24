@@ -3,6 +3,7 @@ import 'package:ai_chat_app/presentation/history_screen/history_screen.dart';
 import 'package:ai_chat_app/presentation/home_screen/home_screen.dart';
 import 'package:ai_chat_app/presentation/login_screen/login_screen.dart';
 import 'package:ai_chat_app/presentation/main_screen/main_screen.dart';
+import 'package:chat/router/chat_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -36,10 +37,7 @@ class AppRouter {
                 ),
               ]),
             ]),
-        // GoRoute(
-        //   path: ChatScreen.path,
-        //   builder: (context, state) => const ChatScreen(),
-        // ),
+        ...chatRoutes,
         GoRoute(
           path: LoginScreen.path,
           builder: (context, state) => const LoginScreen(),

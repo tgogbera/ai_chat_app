@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:logging/logging.dart';
 
 class ApiClient {
   late final Dio _dio;
+  final _logger = Logger('ApiClient');
 
   static final ApiClient _instance = ApiClient._internal();
 
@@ -27,36 +29,31 @@ class ApiClient {
 
     _dio = Dio(options);
 
-    _dio.interceptors.add(InterceptorsWrapper(
-      onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
-        // TODO: replace with logger
-        print('REQUEST[${options.method}] => PATH: ${options.path}');
-        handler.next(options); // continue
-      },
-      onResponse: (Response response, ResponseInterceptorHandler handler) {
-        // TODO: replace with logger
-        print('RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
-        handler.next(response); // continue
-      },
-      onError: (DioException error, ErrorInterceptorHandler handler) {
-        // TODO: replace with logger
-        print('ERROR[${error.response?.statusCode}] => PATH: ${error.requestOptions.path}');
-        handler.next(error); // continue
-      },
-    ));
+    _dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+          _logger.info('REQUEST[${options.method}] => PATH: ${options.path}');
+          handler.next(options); // continue
+        },
+        onResponse: (Response response, ResponseInterceptorHandler handler) {
+          _logger.info('RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}');
+          handler.next(response); // continue
+        },
+        onError: (DioException error, ErrorInterceptorHandler handler) {
+          _logger.severe(
+            'ERROR[${error.response?.statusCode}] => PATH: ${error.requestOptions.path}',
+          );
+          handler.next(error); // continue
+        },
+      ),
+    );
 
     // Log interceptor for debugging
-    _dio.interceptors.add(LogInterceptor(
-      requestBody: true,
-      responseBody: true,
-    ));
+    _dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
   }
 
   /// Performs a GET request.
-  Future<Response> get(
-    String path, {
-    Map<String, dynamic>? queryParameters,
-  }) async {
+  Future<Response> get(String path, {Map<String, dynamic>? queryParameters}) async {
     try {
       final response = await _dio.get(path, queryParameters: queryParameters);
       return response;
@@ -67,11 +64,7 @@ class ApiClient {
   }
 
   /// Performs a POST request.
-  Future<Response> post(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-  }) async {
+  Future<Response> post(String path, {dynamic data, Map<String, dynamic>? queryParameters}) async {
     try {
       final response = await _dio.post(path, data: data, queryParameters: queryParameters);
       return response;
@@ -81,11 +74,7 @@ class ApiClient {
   }
 
   /// Performs a PUT request.
-  Future<Response> put(
-    String path, {
-    dynamic data,
-    Map<String, dynamic>? queryParameters,
-  }) async {
+  Future<Response> put(String path, {dynamic data, Map<String, dynamic>? queryParameters}) async {
     try {
       final response = await _dio.put(path, data: data, queryParameters: queryParameters);
       return response;

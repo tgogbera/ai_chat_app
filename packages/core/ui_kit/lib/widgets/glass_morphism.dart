@@ -46,15 +46,12 @@ class GlassMorphism extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.white.withOpacity(gradientStartOpacity),
-                Colors.white.withOpacity(gradientEndOpacity),
+                Colors.white.withValues(alpha: gradientStartOpacity),
+                Colors.white.withValues(alpha: gradientEndOpacity),
               ],
             ),
             borderRadius: BorderRadius.circular(borderRadius),
-            border: Border.all(
-              width: borderWidth,
-              color: borderColor.withOpacity(0.2),
-            ),
+            border: Border.all(width: borderWidth, color: borderColor.withValues(alpha: 0.2)),
           ),
           child: child,
         ),

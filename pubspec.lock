@@ -449,7 +449,7 @@ packages:
     source: hosted
     version: "5.1.1"
   logging:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: logging
       sha256: c8245ada5f1717ed44271ed1c26b8ce85ca3228fd2ffdb75468ab01979309d61
@@ -701,13 +701,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
-  ui_kit:
-    dependency: "direct main"
-    description:
-      path: "packages/core/ui_kit"
-      relative: true
-    source: path
-    version: "0.0.1"
   uuid:
     dependency: transitive
     description:
