@@ -14,49 +14,45 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GradientBackground(
-      child: SafeArea(
-        bottom: true,
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            title: const Text('Chat'),
-          ),
-          body: Column(
-            children: [
-              Expanded(
-                child: Consumer(
-                  builder: (context, ref, child) {
-                    final chatState = ref.watch(chatNotifierProvider);
+    return SafeArea(
+      top: false,
+      child: Scaffold(
+        appBar: AppBar(elevation: 0, title: const Text('Chat')),
+        body: Stack(
+          children: [
+            const GradientBackground(child: SizedBox.expand()),
+            Column(
+              children: [
+                Expanded(
+                  child: Consumer(
+                    builder: (context, ref, child) {
+                      final chatState = ref.watch(chatNotifierProvider);
 
-                    return ListView.builder(
-                      itemCount: chatState.messages.length + (chatState.isLoading ? 1 : 0),
-                      itemBuilder: (context, index) {
-                        if (chatState.error != null) {
-                          return Center(
-                            child: Text('Error: ${chatState.error}'),
+                      return ListView.builder(
+                        itemCount: chatState.messages.length + (chatState.isLoading ? 1 : 0),
+                        itemBuilder: (context, index) {
+                          if (chatState.error != null) {
+                            return Center(child: Text('Error: ${chatState.error}'));
+                          }
+
+                          if (chatState.isLoading && index == chatState.messages.length) {
+                            return const AssistantLoadingChatBubble();
+                          }
+
+                          final message = chatState.messages[index];
+                          return ChatBubble(
+                            message: message.message.content,
+                            isUser: message.message.role == 'user',
                           );
-                        }
-
-                        if (chatState.isLoading && index == chatState.messages.length) {
-                          return const AssistantLoadingChatBubble();
-                        }
-
-                        final message = chatState.messages[index];
-                        return ChatBubble(
-                          message: message.message.content,
-                          isUser: message.message.role == 'user',
-                        );
-                      },
-                    );
-                  },
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ),
-              ChatTextField(),
-            ],
-          ),
+                ChatTextField(),
+              ],
+            ),
+          ],
         ),
       ),
     );

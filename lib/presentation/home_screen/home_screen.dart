@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  // Define the list of items to be animated.
+
   final List<Widget> items = [
     Container(
       alignment: Alignment.centerLeft,

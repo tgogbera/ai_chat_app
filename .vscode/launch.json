@@ -1,23 +1,21 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    // Configurations for launching the Flutter app
     "version": "0.2.0",
     "configurations": [
-    
         {
-            "name": "ai_chat_app",
+            "name": "Flutter Debug",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug"
         },
         {
-            "name": "ai_chat_app (profile mode)",
+            "name": "Flutter Profile",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "ai_chat_app (release mode)",
+            "name": "Flutter Release",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
