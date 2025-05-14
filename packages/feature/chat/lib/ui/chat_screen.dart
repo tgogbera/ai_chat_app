@@ -17,6 +17,7 @@ class ChatScreen extends StatelessWidget {
     return SafeArea(
       top: false,
       child: Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(elevation: 0, title: const Text('Chat')),
         body: Stack(
           children: [

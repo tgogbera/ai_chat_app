@@ -5,20 +5,14 @@ class ChatBubble extends StatelessWidget {
   final String message;
   final bool isUser;
 
-  const ChatBubble({
-    super.key,
-    required this.message,
-    required this.isUser,
-  });
+  const ChatBubble({super.key, required this.message, required this.isUser});
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.75,
-        ),
+        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.75),
         margin: EdgeInsets.only(
           left: isUser ? 64.0 : 16.0,
           right: isUser ? 16.0 : 64.0,
@@ -27,17 +21,8 @@ class ChatBubble extends StatelessWidget {
         ),
         child: GlassMorphicContainer(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 12.0,
-            ),
-            child: Text(
-              message,
-              style: TextStyle(
-                color: isUser ? Colors.white : Colors.black87,
-                fontSize: 16.0,
-              ),
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+            child: Text(message, style: TextStyle(fontSize: 16.0)),
           ),
         ),
       ),

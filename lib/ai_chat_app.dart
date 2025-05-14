@@ -11,7 +11,7 @@ class AiChatApp extends StatelessWidget {
       theme: ThemeData.dark(
         useMaterial3: true,
       ),
-      routerConfig: AppRouter().getRouter(),
+      routerConfig: AppRouter.router,
     );
   }
 }
