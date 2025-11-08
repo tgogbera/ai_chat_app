@@ -36,7 +36,7 @@ class Header extends StatelessWidget {
               'Est ad dolor aute ex commodo tempor exercitation proident.',
               style: Theme.of(
                 context,
-              ).textTheme.bodyLarge!.copyWith(color: Colors.black.withOpacity(0.5)),
+              ).textTheme.bodyLarge!.copyWith(color: Colors.black.withValues(alpha: 0.5)),
             ),
           ),
         ],

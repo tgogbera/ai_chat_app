@@ -7,14 +7,15 @@ class OnboardingPageIndicator extends StatelessWidget {
   final int currentPage;
   final Widget child;
 
-  const OnboardingPageIndicator({super.key, 
+  const OnboardingPageIndicator({
+    super.key,
     required this.angle,
     required this.currentPage,
     required this.child,
   });
 
   Color _getPageIndicatorColor(int pageIndex) {
-    return currentPage > pageIndex ? Colors.white : Colors.white.withOpacity(0.25);
+    return currentPage > pageIndex ? Colors.white : Colors.white.withValues(alpha: 0.25);
   }
 
   double get indicatorGap => pi / 12;
@@ -25,8 +26,7 @@ class OnboardingPageIndicator extends StatelessWidget {
     return CustomPaint(
       painter: _OnboardignPageIndicatorPainter(
         color: _getPageIndicatorColor(0),
-        startAngle:
-        (4 * indicatorLength) - (indicatorLength + indicatorGap) + angle,
+        startAngle: (4 * indicatorLength) - (indicatorLength + indicatorGap) + angle,
         indicatorLength: indicatorLength,
       ),
       child: CustomPaint(
@@ -38,9 +38,7 @@ class OnboardingPageIndicator extends StatelessWidget {
         child: CustomPaint(
           painter: _OnboardignPageIndicatorPainter(
             color: _getPageIndicatorColor(2),
-            startAngle: (4 * indicatorLength) +
-                (indicatorLength + indicatorGap) +
-                angle,
+            startAngle: (4 * indicatorLength) + (indicatorLength + indicatorGap) + angle,
             indicatorLength: indicatorLength,
           ),
           child: child,

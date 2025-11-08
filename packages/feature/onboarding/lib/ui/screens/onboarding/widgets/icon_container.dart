@@ -10,16 +10,8 @@ class IconContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(padding),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(.25),
-        shape: BoxShape.circle,
-      ),
-      child: Icon(
-        icon,
-        size: 32.0,
-        color: Colors.white,
-      ),
-
+      decoration: BoxDecoration(color: Colors.white.withValues(alpha: .25), shape: BoxShape.circle),
+      child: Icon(icon, size: 32.0, color: Colors.white),
     );
   }
 }
