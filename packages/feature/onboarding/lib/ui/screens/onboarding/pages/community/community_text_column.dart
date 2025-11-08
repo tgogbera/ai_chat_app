@@ -9,7 +9,7 @@ class CommunityTextColumn extends StatelessWidget {
     return const TextColumn(
       title: 'Community',
       text:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas, lorem ut scelerisque tristique.',
+          'Connect with people who share your interests. Join groups, ask questions, and collaborate in real time to solve problems together.',
     );
   }
 }

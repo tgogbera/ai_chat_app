@@ -9,7 +9,7 @@ class EducationTextColumn extends StatelessWidget {
     return const TextColumn(
       title: 'Keep Learning',
       text:
-          'Cras pellentesque erat ut arcu rhoncus sagittis. Fusce laoreet dolor neque, sit amet pellentesque.',
+          'Access bite-sized lessons, tutorials, and guided projects tailored to your level — learn at your own pace and track your progress.',
     );
   }
 }
