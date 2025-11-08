@@ -35,6 +35,8 @@ dependencies:
   # Feature packages
   chat:
     path: packages/feature/chat
+  onboarding:
+    path: packages/feature/onboarding
 
 
 dev_dependencies:
