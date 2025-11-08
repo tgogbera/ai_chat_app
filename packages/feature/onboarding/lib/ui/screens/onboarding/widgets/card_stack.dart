@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding/constants/constants.dart';
+import 'package:ui_kit/widgets/glass_morphic_container.dart';
 
 class CardStack extends StatelessWidget {
   final int pageNumber;
@@ -32,9 +33,7 @@ class CardStack extends StatelessWidget {
         children: <Widget>[
           SlideTransition(
             position: darkCardOffsetAnimation,
-            child: Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-              color: colorDarkBlue,
+            child: GlassMorphicContainer(
               child: Container(
                 width: darkCardWidth,
                 height: darkCardHeight,
@@ -42,6 +41,7 @@ class CardStack extends StatelessWidget {
                   top: !isOddPageNumber ? 100.0 : 0.0,
                   bottom: isOddPageNumber ? 100.0 : 0.0,
                 ),
+                color: colorDarkBlue.withOpacity(0.7),
                 child: Center(child: darkCardChild),
               ),
             ),
@@ -51,13 +51,12 @@ class CardStack extends StatelessWidget {
             bottom: isOddPageNumber ? -25.0 : null,
             child: SlideTransition(
               position: lightCardOffsetAnimation,
-              child: Card(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-                color: colorLightBlue,
+              child: GlassMorphicContainer(
                 child: Container(
                   width: darkCardWidth * 0.8,
                   height: darkCardHeight * 0.5,
                   padding: const EdgeInsets.symmetric(horizontal: paddingM),
+                  color: colorLightBlue.withOpacity(0.7),
                   child: Center(child: lightCardChild),
                 ),
               ),

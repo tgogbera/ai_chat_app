@@ -17,6 +17,7 @@ import 'package:onboarding/ui/screens/onboarding/widgets/onboarding_page.dart';
 import 'package:onboarding/ui/screens/onboarding/widgets/onboarding_page_indicator.dart';
 import 'widgets/next_page_button.dart';
 import 'widgets/ripple.dart';
+import 'package:ui_kit/widgets/gradient_background.dart';
 
 class OnboardingScreen extends StatefulWidget {
   final double screenHeight;
@@ -192,37 +193,39 @@ class _OnboardingScreenState extends State<OnboardingScreen> with TickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: colorBlue,
-      body: Stack(
-        children: <Widget>[
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(paddingL),
-              child: Column(
-                children: <Widget>[
-                  Header(onSkip: _goToNextPage),
-                  Expanded(child: _getPage()),
-                  AnimatedBuilder(
-                    animation: _pageIndicatorAnimation,
-                    builder: (_, Widget? child) {
-                      return OnboardingPageIndicator(
-                        angle: _pageIndicatorAnimation.value,
-                        currentPage: _currentPage,
-                        child: child!,
-                      );
-                    },
-                    child: NextPageButton(onPressed: _nextPage),
-                  ),
-                ],
+      body: GradientBackground(
+        child: Stack(
+          children: <Widget>[
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(paddingL),
+                child: Column(
+                  children: <Widget>[
+                    Header(onSkip: _goToNextPage),
+                    Expanded(child: _getPage()),
+                    AnimatedBuilder(
+                      animation: _pageIndicatorAnimation,
+                      builder: (_, Widget? child) {
+                        return OnboardingPageIndicator(
+                          angle: _pageIndicatorAnimation.value,
+                          currentPage: _currentPage,
+                          child: child!,
+                        );
+                      },
+                      child: NextPageButton(onPressed: _nextPage),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          AnimatedBuilder(
-            animation: _rippleAnimation,
-            builder: (_, Widget? child) {
-              return Ripple(radius: _rippleAnimation.value);
-            },
-          ),
-        ],
+            AnimatedBuilder(
+              animation: _rippleAnimation,
+              builder: (_, Widget? child) {
+                return Ripple(radius: _rippleAnimation.value);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

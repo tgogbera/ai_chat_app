@@ -1,1 +1,1 @@
-export 'ui/screens/onboarding/onboarding_screen.dart';
+export 'ui/screens/onboarding/onboarding_screen_wrapper.dart';
