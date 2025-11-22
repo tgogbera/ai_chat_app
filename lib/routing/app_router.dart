@@ -5,6 +5,7 @@ import 'package:ai_chat_app/presentation/main_screen/main_screen.dart';
 import 'package:chat/router/chat_router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onboarding/ui/screens/onboarding/onboarding_screen_wrapper.dart';
 
 class AppRouter {
   static GoRouter get router => _router;
@@ -13,7 +14,12 @@ class AppRouter {
 
   static final GoRouter _router = GoRouter(
     debugLogDiagnostics: true,
+    initialLocation: '/onboarding',
     routes: [
+      GoRoute(
+        path: '/onboarding',
+        builder: (context, state) => const OnboardingScreenWrapper(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) => MainScreen(navigationShell: navigationShell),
         branches: [
