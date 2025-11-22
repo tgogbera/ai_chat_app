@@ -1,16 +1,14 @@
-import 'package:ui_kit/widgets/gradient_background.dart';
-
-import 'notifiers/chat_provider.dart';
-import 'widgets/chat_bubble.dart';
-import 'widgets/chat_text_field.dart';
-import 'widgets/loading_chat_bubble.dart';
+import 'package:chat/ui/notifiers/chat_provider.dart';
+import 'package:chat/ui/widgets/chat_bubble.dart';
+import 'package:chat/ui/widgets/chat_text_field.dart';
+import 'package:chat/ui/widgets/loading_chat_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ui_kit/widgets/gradient_background.dart';
 
 class ChatScreen extends StatelessWidget {
-  static const path = '/chat';
-
   const ChatScreen({super.key});
+  static const path = '/chat';
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +48,7 @@ class ChatScreen extends StatelessWidget {
                     },
                   ),
                 ),
-                ChatTextField(),
+                const ChatTextField(),
               ],
             ),
           ],

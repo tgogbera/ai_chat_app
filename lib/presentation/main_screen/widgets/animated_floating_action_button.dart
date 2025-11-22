@@ -1,9 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class AnimatedFloatingActionButton extends StatefulWidget {
-  final VoidCallback? onPressed;
-
   const AnimatedFloatingActionButton({super.key, this.onPressed});
+  final VoidCallback? onPressed;
 
   @override
   State<AnimatedFloatingActionButton> createState() => _AnimatedFloatingActionButtonState();
@@ -28,7 +29,7 @@ class _AnimatedFloatingActionButtonState extends State<AnimatedFloatingActionBut
       curve: Curves.easeOut,
     );
 
-    _animationController.forward();
+    unawaited(_animationController.forward());
   }
 
   @override

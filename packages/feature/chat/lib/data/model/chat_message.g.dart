@@ -7,14 +7,13 @@ part of 'chat_message.dart';
 // **************************************************************************
 
 ChatMessage _$ChatMessageFromJson(Map<String, dynamic> json) => ChatMessage(
-      role: json['role'] as String,
-      content: json['content'] as String,
-      refusal: json['refusal'] as String?,
-    );
+  role: json['role'] as String,
+  content: json['content'] as String,
+  refusal: json['refusal'] as String?,
+);
 
-Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) =>
-    <String, dynamic>{
-      'role': instance.role,
-      'content': instance.content,
-      'refusal': instance.refusal,
-    };
+Map<String, dynamic> _$ChatMessageToJson(ChatMessage instance) => <String, dynamic>{
+  'role': instance.role,
+  'content': instance.content,
+  'refusal': instance.refusal,
+};

@@ -2,6 +2,17 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class GlassMorphism extends StatelessWidget {
+  const GlassMorphism({
+    required this.child,
+    this.borderRadius = 20.0,
+    this.blurSigma = 20.0, // increased blur for a stronger glass effect
+    this.gradientStartOpacity = 0.1, // lighter tint at the start
+    this.gradientEndOpacity = 0.05, // even more subtle tint at the end
+    this.borderWidth = 1.0, // thinner border for delicacy
+    this.borderColor = Colors.white,
+    super.key,
+  });
+
   /// The widget to display on top of the glass effect.
   final Widget child;
 
@@ -22,17 +33,6 @@ class GlassMorphism extends StatelessWidget {
 
   /// The color of the border.
   final Color borderColor;
-
-  const GlassMorphism({
-    required this.child,
-    this.borderRadius = 20.0,
-    this.blurSigma = 20.0, // increased blur for a stronger glass effect
-    this.gradientStartOpacity = 0.1, // lighter tint at the start
-    this.gradientEndOpacity = 0.05, // even more subtle tint at the end
-    this.borderWidth = 1.0, // thinner border for delicacy
-    this.borderColor = Colors.white,
-    super.key,
-  });
 
   @override
   Widget build(BuildContext context) {

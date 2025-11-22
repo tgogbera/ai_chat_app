@@ -4,12 +4,6 @@ part 'prompt_token_details.g.dart';
 
 @JsonSerializable()
 class PromptTokensDetails {
-  @JsonKey(name: 'cached_tokens')
-  final int cachedTokens;
-
-  @JsonKey(name: 'audio_tokens')
-  final int audioTokens;
-
   PromptTokensDetails({
     required this.cachedTokens,
     required this.audioTokens,
@@ -17,5 +11,10 @@ class PromptTokensDetails {
 
   factory PromptTokensDetails.fromJson(Map<String, dynamic> json) =>
       _$PromptTokensDetailsFromJson(json);
+  @JsonKey(name: 'cached_tokens')
+  final int cachedTokens;
+
+  @JsonKey(name: 'audio_tokens')
+  final int audioTokens;
   Map<String, dynamic> toJson() => _$PromptTokensDetailsToJson(this);
 }

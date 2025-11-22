@@ -1,9 +1,9 @@
 import 'package:api_client/api_client.dart';
 
-import '../model/chat_choice.dart';
-import '../model/chat_completion.dart';
-import '../model/request_message.dart';
-import 'interface_repository.dart';
+import 'package:chat/data/model/chat_choice.dart';
+import 'package:chat/data/model/chat_completion.dart';
+import 'package:chat/data/model/request_message.dart';
+import 'package:chat/data/repository/interface_repository.dart';
 
 final class Repository implements InterfaceRepository {
   final _apiClient = ApiClient();
@@ -16,8 +16,8 @@ final class Repository implements InterfaceRepository {
       final response = await _apiClient.post(
         _completionPath,
         data: {
-          "model": "gpt-4o",
-          "messages": messages.map((e) => e.toJson()).toList(),
+          'model': 'gpt-4o',
+          'messages': messages.map((e) => e.toJson()).toList(),
         },
       );
 

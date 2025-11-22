@@ -12,7 +12,6 @@ workspace:
   - packages/core/api_client
   - packages/feature/chat
 
-
 dependencies:
   flutter:
     sdk: flutter
@@ -30,11 +29,9 @@ dependencies:
   ui_kit:
     path: packages/core/ui_kit
 
-
   # Feature packages
   chat:
     path: packages/feature/chat
-
 
 dev_dependencies:
   flutter_test:
@@ -46,8 +43,7 @@ dev_dependencies:
   riverpod_generator: ^2.6.5
   build_runner: ^2.4.15
   json_serializable: ^6.9.4
-
-
+  very_good_analysis: ^10.0.0
 
 flutter:
   uses-material-design: true

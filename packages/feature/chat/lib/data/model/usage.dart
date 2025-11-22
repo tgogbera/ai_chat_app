@@ -1,11 +1,20 @@
-import 'completion_token_details.dart';
-import 'prompt_token_details.dart';
+import 'package:chat/data/model/completion_token_details.dart';
+import 'package:chat/data/model/prompt_token_details.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'usage.g.dart';
 
 @JsonSerializable()
 class Usage {
+  Usage({
+    required this.promptTokens,
+    required this.completionTokens,
+    required this.totalTokens,
+    required this.promptTokensDetails,
+    required this.completionTokensDetails,
+  });
+
+  factory Usage.fromJson(Map<String, dynamic> json) => _$UsageFromJson(json);
   @JsonKey(name: 'prompt_tokens')
   final int promptTokens;
 
@@ -20,15 +29,5 @@ class Usage {
 
   @JsonKey(name: 'completion_tokens_details')
   final CompletionTokensDetails completionTokensDetails;
-
-  Usage({
-    required this.promptTokens,
-    required this.completionTokens,
-    required this.totalTokens,
-    required this.promptTokensDetails,
-    required this.completionTokensDetails,
-  });
-
-  factory Usage.fromJson(Map<String, dynamic> json) => _$UsageFromJson(json);
   Map<String, dynamic> toJson() => _$UsageToJson(this);
 }
