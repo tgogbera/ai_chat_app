@@ -5,7 +5,6 @@ import 'package:ai_chat_app/presentation/main_screen/widgets/bottom_nav_bar.dart
 import 'package:chat/ui/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ui_kit/widgets/gradient_background.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({
@@ -18,9 +17,7 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: GradientBackground(
-        child: navigationShell,
-      ),
+      body: navigationShell,
       floatingActionButton: AnimatedFloatingActionButton(
         onPressed: () {
           unawaited(context.push(ChatScreen.path));
