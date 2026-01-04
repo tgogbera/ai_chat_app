@@ -1,1 +1,1 @@
-export 'ui/screens/onboarding/onboarding_screen_wrapper.dart';
+export 'package:onboarding/widgets/onboarding_screen.dart' show OnboardingScreen;
