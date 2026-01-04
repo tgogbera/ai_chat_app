@@ -5,37 +5,46 @@ import 'package:chat/data/repository/interface_repository.dart';
 import 'chat_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class ChatNotifier extends StateNotifier<ChatState> {
+class ChatNotifier extends Notifier<ChatState> {
   final InterfaceRepository _repository;
 
-  ChatNotifier(this._repository) : super(ChatState());
+  ChatNotifier(this._repository) : super();
+
+  @override
+  ChatState build() => const ChatState();
 
   Future<void> sendMessage(String message) async {
     if (message.isEmpty) return;
 
     try {
       final userMessage = ChatChoice(
-          index: state.messages.length,
-          message: ChatMessage(role: 'user', content: message),
-          finishReason: 'stop');
+        index: state.messages.length,
+        message: ChatMessage(role: 'user', content: message),
+        finishReason: 'stop',
+      );
 
-      state =
-          state.copyWith(messages: [...state.messages, userMessage], isLoading: true, error: null);
+      state = state.copyWith(
+        messages: [...state.messages, userMessage],
+        isLoading: true,
+        error: null,
+      );
 
-      final List<RequestMessage> requestMessages = state.messages
-          .map((choice) =>
-              RequestMessage(role: choice.message.role, content: choice.message.content))
-          .toList();
+      final List<RequestMessage> requestMessages =
+          state.messages
+              .map(
+                (choice) =>
+                    RequestMessage(role: choice.message.role, content: choice.message.content),
+              )
+              .toList();
 
       final choices = await _repository.sendMessage(requestMessages);
 
-      state = state.copyWith(
-        messages: [...state.messages, ...choices],
-        isLoading: false,
-      );
+      state = state.copyWith(messages: [...state.messages, ...choices], isLoading: false);
     } catch (e) {
       state = state.copyWith(
-          isLoading: false, error: 'Failed to get response: ${e.toString().split(':').last}');
+        isLoading: false,
+        error: 'Failed to get response: ${e.toString().split(':').last}',
+      );
     }
   }
 }
