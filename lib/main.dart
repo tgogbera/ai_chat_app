@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runZonedGuarded(() async {
+void main() async {
+  await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await dotenv.load(fileName: '.env');
+    await dotenv.load();
 
     runApp(
       const ProviderScope(

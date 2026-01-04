@@ -6,9 +6,9 @@ import 'package:chat/ui/notifiers/chat_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChatNotifier extends Notifier<ChatState> {
-  final InterfaceRepository _repository;
-
   ChatNotifier(this._repository) : super();
+
+  final InterfaceRepository _repository;
 
   @override
   ChatState build() => const ChatState();
@@ -22,18 +22,13 @@ class ChatNotifier extends Notifier<ChatState> {
         message: ChatMessage(role: 'user', content: message),
         finishReason: 'stop',
       );
-        index: state.messages.length,
-        message: ChatMessage(role: 'user', content: message),
-        finishReason: 'stop',
-      );
 
       state = state.copyWith(
         messages: [...state.messages, userMessage],
         isLoading: true,
-        error: null,
       );
 
-      final List<RequestMessage> requestMessages =
+      final requestMessages =
           state.messages
               .map(
                 (choice) =>
@@ -44,7 +39,7 @@ class ChatNotifier extends Notifier<ChatState> {
       final choices = await _repository.sendMessage(requestMessages);
 
       state = state.copyWith(messages: [...state.messages, ...choices], isLoading: false);
-    } catch (e) {
+    } on Exception catch (e) {
       state = state.copyWith(
         isLoading: false,
         error: 'Failed to get response: ${e.toString().split(':').last}',
