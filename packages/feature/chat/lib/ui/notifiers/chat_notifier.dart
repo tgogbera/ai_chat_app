@@ -2,7 +2,7 @@ import 'package:chat/data/model/chat_choice.dart';
 import 'package:chat/data/model/chat_message.dart';
 import 'package:chat/data/model/request_message.dart';
 import 'package:chat/data/repository/interface_repository.dart';
-import 'chat_state.dart';
+import 'package:chat/ui/notifiers/chat_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ChatNotifier extends Notifier<ChatState> {
@@ -18,6 +18,10 @@ class ChatNotifier extends Notifier<ChatState> {
 
     try {
       final userMessage = ChatChoice(
+        index: state.messages.length,
+        message: ChatMessage(role: 'user', content: message),
+        finishReason: 'stop',
+      );
         index: state.messages.length,
         message: ChatMessage(role: 'user', content: message),
         finishReason: 'stop',

@@ -3,21 +3,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:logging/logging.dart';
 
 class ApiClient {
-  late final Dio _dio;
-  final _logger = Logger('ApiClient');
-
-  static final ApiClient _instance = ApiClient._internal();
-
   factory ApiClient() => _instance;
-
-  final _baseUrl = dotenv.env['API_BASE_URL'];
 
   ApiClient._internal() {
     if (_baseUrl == null) {
       throw Exception('API_BASE_URL is not set in .env file');
     }
 
-    BaseOptions options = BaseOptions(
+    final options = BaseOptions(
       baseUrl: _baseUrl,
       connectTimeout: const Duration(seconds: 5),
       receiveTimeout: const Duration(seconds: 5),
@@ -51,6 +44,12 @@ class ApiClient {
     // Log interceptor for debugging
     _dio.interceptors.add(LogInterceptor(requestBody: true, responseBody: true));
   }
+  late final Dio _dio;
+  final _logger = Logger('ApiClient');
+
+  static final ApiClient _instance = ApiClient._internal();
+
+  final String? _baseUrl = dotenv.env['API_BASE_URL'];
 
   /// Performs a GET request.
   Future<Response> get(String path, {Map<String, dynamic>? queryParameters}) async {

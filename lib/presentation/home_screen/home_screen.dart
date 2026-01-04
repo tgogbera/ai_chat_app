@@ -1,11 +1,11 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
 import 'package:ai_chat_app/presentation/home_screen/widgets/quick_action_item.dart';
+import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  static const path = '/';
-
   const HomeScreen({super.key});
+  static const path = '/';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -18,9 +18,9 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     Container(
       alignment: Alignment.centerLeft,
       margin: const EdgeInsets.only(
-        top: 16.0,
+        top: 16,
       ),
-      child: Text(
+      child: const Text(
         'Welcome to AI Chat!',
         style: TextStyle(
           fontSize: 32,
@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
     ),
     Container(
-      margin: const EdgeInsets.only(bottom: 24.0),
+      margin: const EdgeInsets.only(bottom: 24),
       alignment: Alignment.centerLeft,
       child: Text(
         'Get started by choosing an option below to chat with AI, manage your profile, or customize your settings.',
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       vsync: this,
     );
     // Start the animation as soon as the screen is built.
-    _controller.forward();
+    unawaited(_controller.forward());
   }
 
   @override
@@ -81,8 +81,8 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   Animation<Offset> _slideAnimation(int index) {
     // Stagger the animations using an interval.
     // For four items, we can have a slight delay between each.
-    double start = index * 0.15;
-    double end = start + 0.5;
+    final start = index * 0.15;
+    var end = start + 0.5;
     if (end > 1.0) end = 1.0;
 
     return Tween<Offset>(
@@ -98,13 +98,13 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   // Creates a fade animation for the item at the given index.
   Animation<double> _fadeAnimation(int index) {
-    double start = index * 0.15;
-    double end = start + 0.5;
+    final start = index * 0.15;
+    var end = start + 0.5;
     if (end > 1.0) end = 1.0;
 
     return Tween<double>(
-      begin: 0.0, // Fully transparent.
-      end: 1.0, // Fully opaque.
+      begin: 0, // Fully transparent.
+      end: 1, // Fully opaque.
     ).animate(
       CurvedAnimation(
         parent: _controller,
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
     return SafeArea(
       bottom: false,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: List.generate(items.length, (index) {
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
               child: FadeTransition(
                 opacity: _fadeAnimation(index),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 8),
                   child: items[index],
                 ),
               ),

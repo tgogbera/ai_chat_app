@@ -4,10 +4,6 @@ part 'chat_message.g.dart';
 
 @JsonSerializable()
 class ChatMessage {
-  final String role;
-  final String content;
-  final String? refusal;
-
   ChatMessage({
     required this.role,
     required this.content,
@@ -15,5 +11,8 @@ class ChatMessage {
   });
 
   factory ChatMessage.fromJson(Map<String, dynamic> json) => _$ChatMessageFromJson(json);
+  final String role;
+  final String content;
+  final String? refusal;
   Map<String, dynamic> toJson() => _$ChatMessageToJson(this);
 }

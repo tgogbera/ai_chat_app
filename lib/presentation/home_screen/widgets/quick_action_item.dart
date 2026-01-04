@@ -1,13 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:ui_kit/widgets/glass_morphic_container.dart';
 
-import 'package:flutter/material.dart';
-
 class QuickActionItem extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
-
   const QuickActionItem({
     required this.icon,
     required this.title,
@@ -15,6 +9,10 @@ class QuickActionItem extends StatelessWidget {
     required this.onTap,
     super.key,
   });
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {

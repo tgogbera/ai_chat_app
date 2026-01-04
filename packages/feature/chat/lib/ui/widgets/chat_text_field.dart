@@ -1,4 +1,6 @@
-import '../notifiers/chat_provider.dart';
+import 'dart:async';
+
+import 'package:chat/ui/notifiers/chat_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -30,7 +32,7 @@ class _ChatTextFieldState extends ConsumerState<ChatTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Theme.of(context).cardColor,
         border: Border(
@@ -46,7 +48,7 @@ class _ChatTextFieldState extends ConsumerState<ChatTextField> {
               decoration: InputDecoration(
                 hintText: 'Type a message',
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(24.0),
+                  borderRadius: BorderRadius.circular(24),
                 ),
               ),
             ),
@@ -55,7 +57,7 @@ class _ChatTextFieldState extends ConsumerState<ChatTextField> {
           IconButton(
             icon: const Icon(Icons.send),
             onPressed: () {
-              ref.read(chatNotifierProvider.notifier).sendMessage(_controller.text);
+              unawaited(ref.read(chatNotifierProvider.notifier).sendMessage(_controller.text));
               _controller.clear();
             },
           ),

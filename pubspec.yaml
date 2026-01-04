@@ -13,7 +13,6 @@ workspace:
   - packages/feature/chat
   - packages/feature/onboarding
 
-
 dependencies:
   flutter:
     sdk: flutter
@@ -31,13 +30,11 @@ dependencies:
   ui_kit:
     path: packages/core/ui_kit
 
-
   # Feature packages
   chat:
     path: packages/feature/chat
   onboarding:
     path: packages/feature/onboarding
-
 
 dev_dependencies:
   flutter_test:
@@ -49,8 +46,7 @@ dev_dependencies:
   riverpod_generator: ^4.0.0+1
   build_runner: ^2.4.15
   json_serializable: ^6.9.4
-
-
+  very_good_analysis: ^10.0.0
 
 flutter:
   uses-material-design: true

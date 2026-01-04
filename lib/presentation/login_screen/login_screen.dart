@@ -1,12 +1,11 @@
+import 'package:ai_chat_app/presentation/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ai_chat_app/presentation/home_screen/home_screen.dart';
 import 'package:ui_kit/widgets/gradient_background.dart';
 
 class LoginScreen extends StatelessWidget {
-  static const path = '/login';
-
   const LoginScreen({super.key});
+  static const path = '/login';
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +18,12 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Placeholder(
+                const Placeholder(
                   fallbackHeight: 40,
                 ),
                 const SizedBox(height: 20),
-                Text(
+                const Text(
                   'Welcome back 🎉',
                   style: TextStyle(
                     fontSize: 24,
@@ -34,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text(
+                const Text(
                   'Please enter required details',
                   style: TextStyle(
                     fontSize: 16,
@@ -50,11 +48,11 @@ class LoginScreen extends StatelessWidget {
                     filled: true,
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.white54),
+                      borderSide: const BorderSide(color: Colors.white54),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.blueAccent),
+                      borderSide: const BorderSide(color: Colors.blueAccent),
                     ),
                   ),
                 ),
@@ -76,14 +74,14 @@ class LoginScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Don't have an account? ",
                       style: TextStyle(color: Colors.white70),
                     ),
                     GestureDetector(
                       onTap: () {},
-                      child: Text(
-                        "Sign Up",
+                      child: const Text(
+                        'Sign Up',
                         style: TextStyle(color: Colors.greenAccent, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -104,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  icon: Placeholder(
+                  icon: const Placeholder(
                     fallbackHeight: 24,
                     fallbackWidth: 24,
                   ),
@@ -119,7 +117,7 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {},
-                      child: Text(
+                      child: const Text(
                         'Terms of use',
                         style: TextStyle(color: Colors.tealAccent, fontSize: 12),
                       ),
@@ -129,7 +127,7 @@ class LoginScreen extends StatelessWidget {
                     const SizedBox(width: 10),
                     GestureDetector(
                       onTap: () {},
-                      child: Text(
+                      child: const Text(
                         'Privacy policy',
                         style: TextStyle(color: Colors.tealAccent, fontSize: 12),
                       ),

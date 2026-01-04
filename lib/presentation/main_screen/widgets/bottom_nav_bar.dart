@@ -1,13 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class BottomNavBar extends StatefulWidget {
-  final StatefulNavigationShell navigationShell;
-
   const BottomNavBar({
     required this.navigationShell,
     super.key,
   });
+  final StatefulNavigationShell navigationShell;
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -34,12 +35,14 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0, 1),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOutQuart,
-    ));
+    ).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Curves.easeOutQuart,
+      ),
+    );
 
-    _controller.forward();
+    unawaited(_controller.forward());
   }
 
   @override
@@ -60,7 +63,6 @@ class _BottomNavBarState extends State<BottomNavBar> with SingleTickerProviderSt
         child: FadeTransition(
           opacity: _fadeAnimation,
           child: Row(
-            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               IconButton(

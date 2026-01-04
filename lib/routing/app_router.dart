@@ -26,10 +26,11 @@ class AppRouter {
         ),
       ),
       StatefulShellRoute.indexedStack(
-          builder: (context, state, navigationShell) =>
-              MainScreen(navigationShell: navigationShell),
-          branches: [
-            StatefulShellBranch(navigatorKey: navigatorKey, routes: [
+        builder: (context, state, navigationShell) => MainScreen(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            navigatorKey: navigatorKey,
+            routes: [
               GoRoute(
                 path: HomeScreen.path,
                 pageBuilder: (context, state) => NoTransitionPage(
@@ -37,8 +38,10 @@ class AppRouter {
                   child: const HomeScreen(),
                 ),
               ),
-            ]),
-            StatefulShellBranch(routes: [
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
               GoRoute(
                 path: HistoryScreen.path,
                 pageBuilder: (context, state) => NoTransitionPage(
@@ -46,8 +49,10 @@ class AppRouter {
                   child: const HistoryScreen(),
                 ),
               ),
-            ]),
-          ]),
+            ],
+          ),
+        ],
+      ),
       ...chatRoutes,
       GoRoute(
         path: LoginScreen.path,
